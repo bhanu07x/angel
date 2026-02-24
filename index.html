@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Shruthii</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rose: #d4a5a5;
+            --deep-rose: #b87b7b;
+            --cream: #fff9f5;
+            --gold: #d4af37;
+            --soft-shadow: rgba(180, 120, 120, 0.15);
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 50%, #ffd5c8 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(212, 165, 165, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 182, 193, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 100%;
+            width: 100%;
+            padding: 0;
+            animation: fadeIn 1.2s ease-out;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .heart-float {
+            position: absolute;
+            font-size: 35px;
+            opacity: 0;
+            animation: floatHeart 4s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        .heart-float:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+        .heart-float:nth-child(2) { left: 85%; top: 15%; animation-delay: 2s; }
+        .heart-float:nth-child(3) { left: 15%; top: 75%; animation-delay: 4s; }
+        .heart-float:nth-child(4) { right: 12%; top: 60%; animation-delay: 1s; }
+        .heart-float:nth-child(5) { left: 50%; top: 10%; animation-delay: 3s; }
+
+        @keyframes floatHeart {
+            0%, 100% { 
+                opacity: 0; 
+                transform: translateY(0) scale(0.5);
+            }
+            10% { 
+                opacity: 0.4; 
+                transform: translateY(-10px) scale(0.8);
+            }
+            50% { 
+                opacity: 0.6; 
+                transform: translateY(-30px) scale(1);
+            }
+            90% { 
+                opacity: 0.3; 
+                transform: translateY(-50px) scale(0.7);
+            }
+        }
+
+        .photo-frame {
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+            animation: scaleIn 0.8s ease-out 0.3s both;
+        }
+
+        .photo-frame::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, 
+                rgba(255, 245, 240, 0) 0%, 
+                rgba(255, 245, 240, 0) 50%,
+                rgba(184, 123, 123, 0.7) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .photo-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--rose), var(--deep-rose));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: var(--cream);
+        }
+
+        .message {
+            position: absolute;
+            bottom: 80px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 2;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+            animation: slideUp 0.8s ease-out 0.5s both;
+            color: var(--cream);
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            font-weight: 700;
+            margin: 10px 0;
+            color: var(--cream);
+            animation: slideUp 0.8s ease-out 0.7s both;
+            letter-spacing: 4px;
+            text-shadow: 0 3px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .love-symbol {
+            display: inline-block;
+            margin-left: 15px;
+            color: #ffb6c1;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            filter: drop-shadow(0 2px 10px rgba(255, 182, 193, 0.6));
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            10%, 30% { transform: scale(1.1); }
+            20%, 40% { transform: scale(0.95); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from { 
+                opacity: 0; 
+                transform: scale(0.8);
+            }
+            to { 
+                opacity: 1; 
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 0.3;
+            }
+            50% { 
+                transform: scale(1.05);
+                opacity: 0.4;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="heart-float">♥</div>
+    <div class="heart-float">♥</div>
+    <div class="heart-float">♥</div>
+    <div class="heart-float">♥</div>
+    <div class="heart-float">♥</div>
+
+    <div class="container">
+        <div class="photo-frame">
+            <div class="photo-wrapper">
+                <img src="nobg3.png" alt="Sahithi">
+            </div>
+            <div class="message">
+                <h1>Happy Birthday</h1>
+                <div class="name">Shruthii<span class="love-symbol">♥</span></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Happy Birthday Shruthii</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -23,11 +23,13 @@
         body {
             font-family: 'Cormorant Garamond', serif;
             background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 50%, #ffd5c8 100%);
-            min-height: 100vh;
+            /* FIXED: Ensures no scroll on any device */
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden; 
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow-x: hidden;
             position: relative;
         }
 
@@ -47,11 +49,9 @@
         .container {
             position: relative;
             z-index: 1;
-            max-width: 100%;
             width: 100%;
-            padding: 0;
+            height: 100%;
             animation: fadeIn 1.2s ease-out;
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -72,27 +72,15 @@
         .heart-float:nth-child(5) { left: 50%; top: 10%; animation-delay: 3s; }
 
         @keyframes floatHeart {
-            0%, 100% { 
-                opacity: 0; 
-                transform: translateY(0) scale(0.5);
-            }
-            10% { 
-                opacity: 0.4; 
-                transform: translateY(-10px) scale(0.8);
-            }
-            50% { 
-                opacity: 0.6; 
-                transform: translateY(-30px) scale(1);
-            }
-            90% { 
-                opacity: 0.3; 
-                transform: translateY(-50px) scale(0.7);
-            }
+            0%, 100% { opacity: 0; transform: translateY(0) scale(0.5); }
+            10% { opacity: 0.4; transform: translateY(-10px) scale(0.8); }
+            50% { opacity: 0.6; transform: translateY(-30px) scale(1); }
+            90% { opacity: 0.3; transform: translateY(-50px) scale(0.7); }
         }
 
         .photo-frame {
             width: 100%;
-            height: 100vh;
+            height: 100%; /* Changed from 100vh to fill container */
             margin: 0;
             position: relative;
             animation: scaleIn 0.8s ease-out 0.3s both;
@@ -123,20 +111,9 @@
             object-fit: cover;
         }
 
-        .photo-placeholder {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--rose), var(--deep-rose));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
-            color: var(--cream);
-        }
-
         .message {
             position: absolute;
-            bottom: 80px;
+            bottom: 60px; /* Reduced slightly for mobile safety */
             left: 0;
             right: 0;
             text-align: center;
@@ -146,10 +123,10 @@
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 48px;
+            font-size: 40px; /* Scaled down slightly for mobile */
             font-weight: 400;
-            margin-bottom: 15px;
-            letter-spacing: 3px;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
             animation: slideUp 0.8s ease-out 0.5s both;
             color: var(--cream);
             text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
@@ -157,18 +134,18 @@
 
         .name {
             font-family: 'Playfair Display', serif;
-            font-size: 56px;
+            font-size: 48px; /* Scaled down slightly for mobile */
             font-weight: 700;
-            margin: 10px 0;
+            margin: 5px 0;
             color: var(--cream);
             animation: slideUp 0.8s ease-out 0.7s both;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             text-shadow: 0 3px 25px rgba(0, 0, 0, 0.4);
         }
 
         .love-symbol {
             display: inline-block;
-            margin-left: 15px;
+            margin-left: 10px;
             color: #ffb6c1;
             animation: heartbeat 1.5s ease-in-out infinite;
             filter: drop-shadow(0 2px 10px rgba(255, 182, 193, 0.6));
@@ -180,43 +157,9 @@
             20%, 40% { transform: scale(0.95); }
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from { 
-                opacity: 0; 
-                transform: translateY(30px);
-            }
-            to { 
-                opacity: 1; 
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes scaleIn {
-            from { 
-                opacity: 0; 
-                transform: scale(0.8);
-            }
-            to { 
-                opacity: 1; 
-                transform: scale(1);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% { 
-                transform: scale(1);
-                opacity: 0.3;
-            }
-            50% { 
-                transform: scale(1.05);
-                opacity: 0.4;
-            }
-        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes scaleIn { from { opacity: 0; transform: scale(1); } to { opacity: 1; transform: scale(1); } }
 
     </style>
 </head>
@@ -237,7 +180,7 @@
                 <div class="name">Shruthii<span class="love-symbol">♥</span></div>
             </div>
         </div>
-</div>
+    </div>
 
     <audio id="bgMusic" loop>
         <source src="Champion - Gira Gira Gingiraag-Downringtone.com.mp3" type="audio/mpeg">
@@ -245,26 +188,16 @@
 
     <script>
         const audio = document.getElementById('bgMusic');
-        
-        // Function to attempt playback
         const playAudio = () => {
             audio.play().catch(error => {
-                console.log("Autoplay blocked. Waiting for user interaction.");
+                console.log("Autoplay blocked.");
             });
         };
-
-        // Wait 0.2 seconds after the window loads to attempt play
         window.addEventListener('load', () => {
-            setTimeout(() => {
-                playAudio();
-            }, 10);
+            setTimeout(() => { playAudio(); }, 10);
         });
-
-        // Fallback: If autoplay is blocked, play on the first click anywhere
         document.addEventListener('click', () => {
-            if (audio.paused) {
-                playAudio();
-            }
+            if (audio.paused) { playAudio(); }
         }, { once: true });
     </script>
 </body>
